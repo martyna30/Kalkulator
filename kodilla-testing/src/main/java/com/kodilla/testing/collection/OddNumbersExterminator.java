@@ -14,13 +14,6 @@ public class OddNumbersExterminator {
             }
         }
     }
-    public boolean isEven(int count){
-        if(count % 2 == 0) {
-
-        }
-        return true;
-    }
-
     public ArrayList<Integer> getListEven() {
         return listEven;
     }
