@@ -35,8 +35,25 @@ public class StreamMain {
         poemBeautifier.beautify("  My boy", text -> System.out.println(text.trim()));
         poemBeautifier.beautify("My mother", text -> System.out.println(new StringBuilder(text).reverse()));
         poemBeautifier.beautify("My day", text -> System.out.println(new StringBuilder(text).replace(3, 3, "beautifull ")));
+
+        Forum forum = new Forum();
+
+        Map<Integer, ForumUser> theUserMap = forum.getUserList().stream()
+                .filter(forumUser -> forumUser.getUseSex() == 'M')
+                .filter(forumUser -> forumUser.getDateOfbirth().isBefore(LocalDate.of(2000, 1, 5)))  //musi byc true/false tylko lambda
+                .filter(forumUser -> forumUser.getQuantityReleasedPosts() > 0)
+                .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
+
+        System.out.println(theUserMap);
+        theUserMap.entrySet().stream()
+                .map(entry -> entry.getKey() + ":" + entry.getValue())
+                .forEach(System.out::println);
     }
 }
+
+
+
+
 
 
 
