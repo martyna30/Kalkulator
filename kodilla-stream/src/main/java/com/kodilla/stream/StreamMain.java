@@ -40,7 +40,7 @@ public class StreamMain {
 
         Map<Integer, ForumUser> theUserMap = forum.getUserList().stream()
                 .filter(forumUser -> forumUser.getUseSex() == 'M')
-                .filter(forumUser -> forumUser.getDateOfbirth().isBefore(LocalDate.of(2000, 1, 5)))  //musi byc true/false tylko lambda
+                .filter(forumUser -> forumUser.getDateOfbirth().isBefore(LocalDate.of(2000, 1, 5)))
                 .filter(forumUser -> forumUser.getQuantityReleasedPosts() > 0)
                 .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
 
