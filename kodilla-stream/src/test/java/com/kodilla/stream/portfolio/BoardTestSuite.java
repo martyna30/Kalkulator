@@ -160,7 +160,7 @@ public class BoardTestSuite {
                 .filter(taskList -> taskList.getName().equals("In progress"))
                 .flatMap(taskList -> taskList.getTasks().stream()).count();
 
-        long average = sum/countTask;
+        long average = sum / countTask;
 
         Assert.assertEquals(3, countTask);
         Assert.assertEquals(30, sum);
