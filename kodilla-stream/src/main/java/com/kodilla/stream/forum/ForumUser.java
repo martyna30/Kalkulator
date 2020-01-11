@@ -31,12 +31,12 @@ public final class ForumUser {
                 .collect(Collectors.toSet());
     }
 
-    public Set<String>getLocationsOfFriendsOfFriends() {
+       public Set<String>getLocationsOfFriendsOfFriends() {
         return friends.stream() //ok
-                .flatMap(user -> user.getFriends().stream())//ok dla każdego uzytkownika pobieramy liste przyjació i nowy strumien czyli powstaje lista przyjaciół przyjaciół
-                        .filter(user -> user != this)//?
-                        .map(ForumUser::getLocation)
-                        .collect(Collectors.toSet());//lista lokalizacji przyjacił przyjaciół
+                //.flatMap(user -> user.getFriends().stream())//ok dla każdego uzytkownika pobieramy liste przyjació i nowy strumien czyli powstaje lista przyjaciół przyjaciół
+                // .filter(user -> user != this)//?
+                .map(ForumUser::getLocation)
+                .collect(Collectors.toSet());//lista lokalizacji przyjacił przyjaciół
 
     }
 
