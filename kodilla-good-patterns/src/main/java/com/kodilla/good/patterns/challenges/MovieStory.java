@@ -3,12 +3,7 @@ package com.kodilla.good.patterns.challenges;
 import java.util.*;
 
 public final class MovieStory {
-    final List<String> ironManTranslations = new ArrayList<>();
-    final List<String> avengersTranslations = new ArrayList<>();
-    final List<String> flashTranslations = new ArrayList<>();
-
     public static Map<String, List<String>> getMovies() {
-
         final List<String> ironManTranslations = new ArrayList<>();
         ironManTranslations.add("Żelazny Człowiek");
         ironManTranslations.add("Iron Man");
@@ -27,10 +22,6 @@ public final class MovieStory {
         booksTitlesWithTranslations.put("FL", flashTranslations);
 
         return new HashMap<>(booksTitlesWithTranslations);
-    }
-
-    public List<String> getIronManTranslations(String s) {
-        return ironManTranslations;
     }
 }
 
