@@ -1,32 +1,51 @@
 package com.kodilla.good.patterns.flight2;
 
-public class City {
+import java.util.*;
 
-    String start;
-    String destination;
-    String indirect;
-    String name;
+public final class Flight {
 
-    public City(String start, String indirect, String destination) {
-    this.start = start;
-    this.destination = destination;
+    private final String departure;
+    private final String indirect;
+    private final String arrives;
+
+    public Flight(final String departure, final String indirect, final String arrives) {
+    this.departure = departure;
+    this.arrives = arrives;
     this.indirect = indirect;
     }
 
-    public String getStart() {
-        return start;
+    public String getDeparture() {
+        return departure;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getArrives() {
+        return arrives;
     }
 
     public String getIndirect() {
         return indirect;
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public String toString() {
+        return "Flight: " +
+                "departure from " + departure +
+                ", indirect " + indirect +
+                ", to " + arrives;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flight flight = (Flight) o;
+        return Objects.equals(departure, flight.departure) &&
+                Objects.equals(indirect, flight.indirect) &&
+                Objects.equals(arrives, flight.arrives);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(departure, indirect, arrives);
     }
 }
 
