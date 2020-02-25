@@ -30,7 +30,6 @@ public final class Flight {
     public String toString() {
         return "Flight: " +
                 "departure from " + departure +
-                ", indirect " + indirect +
                 ", to " + arrives;
     }
     @Override
@@ -45,7 +44,7 @@ public final class Flight {
 
     @Override
     public int hashCode() {
-        return Objects.hash(departure, indirect, arrives);
+        return Objects.hash(departure, arrives);
     }
 }
 

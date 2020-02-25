@@ -9,11 +9,11 @@ public final class FlightsSet {
     private final Set<Flight> flightsSet = new HashSet<>();
 
     public FlightsSet() {
-        flightsSet.add( new Flight("Wrocław", "Kraków","Gdańsk"));
-        flightsSet.add( new Flight("Wrocław", "Katowice","Gdańsk"));
-        flightsSet.add( new Flight("Gdańsk", "Kraków","Wrocław"));
-        flightsSet.add( new Flight("Gdańsk", "Katowice","Wrocław"));
-        flightsSet.add(new Flight("Warszawa","Kraków","Gdańsk"));
+        flightsSet.add( new Flight("Wrocław", "","Poznań"));
+        flightsSet.add( new Flight("Poznań", "","Gdańsk"));
+        flightsSet.add( new Flight("Gdańsk", "","Wrocław"));
+        flightsSet.add( new Flight("Gdańsk", "","Warszawa"));
+        flightsSet.add(new Flight("Warszawa","","Gdańsk"));
     }
 
     public Set<Flight> getFlightsSet() {
