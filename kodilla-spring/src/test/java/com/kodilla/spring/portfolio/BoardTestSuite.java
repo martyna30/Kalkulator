@@ -13,7 +13,7 @@ public class BoardTestSuite {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
 
-        Board board = context.getBean(Board.class);//new Board
+        Board board = context.getBean(Board.class);
 
         board.getToDoList().addTask("Task toDo1");
         board.getInProgressList().addTask("Task inProgress1");
@@ -23,6 +23,9 @@ public class BoardTestSuite {
         String taskInProgress = board.getInProgressList().getTasks().get(0);
         String taskDone = board.getDoneList().getTasks().get(0);
         //Then
+        System.out.println(taskToDo);
+        System.out.println( taskInProgress);
+        System.out.println(taskDone);
         Assert.assertEquals("Task toDo1", taskToDo);
         Assert.assertEquals("Task inProgress1", taskInProgress);
         Assert.assertEquals("Task done1", taskDone);
