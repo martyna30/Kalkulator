@@ -1,15 +1,20 @@
 plugins {
+    id 'org.springframework.boot' version '2.2.5.RELEASE'
     id 'java'
 }
+apply plugin: 'io.spring.dependency-management'
 
 version 'unspecified'
-
-sourceCompatibility = 1.8
+sourceCompatibility = '1.8'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    compile 'mysql:mysql-connector-java'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
