@@ -8,7 +8,7 @@ import java.util.List;
         name ="Company.retrieveCompanyWithName",
         query ="SELECT COMPANY_ID, COMPANY_NAME, SUBSTRING(COMPANY_NAME, 1,3) AS COMPANY_FIRST_CHARS " +
                 "FROM COMPANIES" +
-                " HAVING COMPANY_FIRST_CHARS = 'Sof'",
+                " WHERE SUBSTRING(COMPANY_NAME, 1,3) = 'Sof'",
         resultClass = Company.class
 )
 @Entity
