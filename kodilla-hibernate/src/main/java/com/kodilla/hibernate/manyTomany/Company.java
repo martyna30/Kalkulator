@@ -4,6 +4,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name="Company.retrieveCompanyWithStringCharacter",
+        query = "FROM Company WHERE name LIKE :NAME"
+)
+
 @NamedNativeQuery(
         name ="Company.retrieveCompanyWithName",
         query ="SELECT COMPANY_ID, COMPANY_NAME, SUBSTRING(COMPANY_NAME, 1,3) AS COMPANY_FIRST_CHARS " +
