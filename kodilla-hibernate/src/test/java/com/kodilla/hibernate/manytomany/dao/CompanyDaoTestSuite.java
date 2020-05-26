@@ -58,12 +58,13 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, greyMatterId);
 
         //CleanUp
-        //try {
-        //companyDao.deleteById(softwareMachineId);
-        //companyDao.deleteById(dataMaestersId);
-        //companyDao.deleteById(greyMatterId);
-        //} catch (Exception e) {
-        //do nothing
+        try {
+            companyDao.deleteById(softwareMachineId);
+            companyDao.deleteById(dataMaestersId);
+            companyDao.deleteById(greyMatterId);
+        } catch (Exception e) {
+            //nothing
+        }
     }
 
     @Test
@@ -101,7 +102,7 @@ public class CompanyDaoTestSuite {
         int id2 = companiesWithName.get(1).getId();
 
         //Then
-        Assert.assertEquals(2,companiesWithName.size());
+        Assert.assertEquals(2, companiesWithName.size());
 
         //CleanUp
         companyDao.deleteById(id);
