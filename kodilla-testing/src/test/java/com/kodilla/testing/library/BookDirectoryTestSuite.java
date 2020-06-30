@@ -101,6 +101,7 @@ public class BookDirectoryTestSuite {
         List<Book> theListOfBooksBorrowd = bookLibrary.listBooksInHandsOf(new LibraryUser("Adam", "Sójka", "88121108687"));
 
         List<Book> theListOfBooksBorrowd1 = bookLibrary.listBooksInHandsOf(new LibraryUser("Wojciech", "Bocian", "88121108686"));
+
         // Then
         assertEquals(0, listBorrowedEmpty.size());
         assertEquals(1, listBorrowed1.size());
