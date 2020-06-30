@@ -4,12 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -162,6 +159,7 @@ public class BoardTestSuite {
 
         double average = (double)sum / countTask;
 
+        //Then
         Assert.assertEquals(3, countTask);
         Assert.assertEquals(30, sum);
         Assert.assertEquals(10.0, average,0.1);
