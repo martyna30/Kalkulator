@@ -31,6 +31,7 @@ public class BookLibrary {
         List<Book> bookListBorrowed = libraryDatabase.listBooksInHandsOf(libraryUser);
         emptyBookListBorrowed = bookListBorrowed;
         return emptyBookListBorrowed;
+
     }
 }
 
