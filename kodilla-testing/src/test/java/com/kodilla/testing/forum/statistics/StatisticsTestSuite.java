@@ -2,7 +2,6 @@ package com.kodilla.testing.forum.statistics;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.stubbing.OngoingStubbing;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +19,10 @@ public class StatisticsTestSuite {
         for(int i = 0;i < 100 ;i++) {
             String name = "";
             statisticsList.add(name + i);
-
         }
         List<String> statisticsListEmpty = new ArrayList<>();
 
+        //When&Then
         when(statisticsMock.usersNames()).thenReturn(statisticsList);
         when(statisticsMock.commentsCount()).thenReturn(200);
         when(statisticsMock.postsCount()).thenReturn(100);
