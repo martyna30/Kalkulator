@@ -10,12 +10,12 @@ ArrayList<Shape>listShape = new ArrayList<>();
         this.listShape.add(shape);
     }
 
-    public void removeFigure(Shape shape) {
-        this.listShape.remove(shape);
+    public boolean removeFigure(Shape shape) {
+        return this.listShape.remove(shape);
     }
 
-    public void getFigure(int n) {
-        this.listShape.get(n);
+    public Shape getFigure(int n) {
+        return this.listShape.get(n);
     }
 }
 
