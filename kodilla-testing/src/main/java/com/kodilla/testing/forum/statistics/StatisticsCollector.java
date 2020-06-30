@@ -1,18 +1,17 @@
 package com.kodilla.testing.forum.statistics;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class StatisticsCollector {
-    double averageCountPostsPerUser;//gettery
+    double averageCountPostsPerUser;
     double averageCountCommentsPerUser;
     double averageCountCommentsPerPost;
     List<String> quantityUsers;
     double quantityPosts;
     double quantityComments;
 
-    public void calculateAdvStatistics(Statistics statistics) {//if 0 else if?
+    public void calculateAdvStatistics(Statistics statistics) {
         quantityUsers = statistics.usersNames();
         quantityPosts = statistics.postsCount();
         quantityComments = statistics.commentsCount();
