@@ -35,7 +35,6 @@ public class Employee {
     @GeneratedValue
     @NotNull
     @Column(name = "EMPLOYEE_ID",unique = true)
-
     public int getId() {
         return id;
     }
@@ -51,6 +50,7 @@ public class Employee {
     public String getLastname() {
         return lastname;
     }
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name ="JOIN_COMPANY_EMPLOYEE",

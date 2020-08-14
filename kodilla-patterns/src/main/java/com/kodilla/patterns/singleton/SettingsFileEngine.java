@@ -1,22 +1,20 @@
 package com.kodilla.patterns.singleton;
 
 public class SettingsFileEngine {
-    private static SettingsFileEngine settingsFileEngineInstance = null;//referencja do instancji klasy bedzie powołane przy probe uzycia
+    private static SettingsFileEngine settingsFileEngine = null;//referencja do instancji klasy bedzie powołane przy probe uzycia
     private String fileName = "";
 
-    private SettingsFileEngine() {//private zeby nikt nie mogl utworzyc obiektu klasy
-
-    }
+    private SettingsFileEngine() {}//private zeby nikt nie mogl utworzyc obiektu klasy
 
     public static SettingsFileEngine getInstance() {//metoda statyczna MOZNA WYWOŁAC Z KLASY BEZ TWORZENIA OBIEKTU
-        if (settingsFileEngineInstance == null) {
+        if (settingsFileEngine == null) {
             synchronized (SettingsFileEngine.class) {
-                if (settingsFileEngineInstance == null) {
-                    settingsFileEngineInstance = new SettingsFileEngine();
+                if (settingsFileEngine == null) {
+                    settingsFileEngine = new SettingsFileEngine();
                 }
             }
         }
-        return settingsFileEngineInstance;
+        return settingsFileEngine;
     }
 
     public String getFileName() {

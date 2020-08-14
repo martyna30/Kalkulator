@@ -3,6 +3,9 @@ apply plugin: 'java'
 
 dependencies {
 
+testImplementation 'junit:junit:4.12'
+
+    //'org.junit.jupiter:junit-jupiter:5.4.2.'
 }
 
 

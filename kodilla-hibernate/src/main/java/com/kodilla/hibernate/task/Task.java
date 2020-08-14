@@ -1,17 +1,43 @@
 package com.kodilla.hibernate.task;
 
+import com.kodilla.hibernate.tasklist.TaskList;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Entity //UTRWALENIE W BAZIE(informacja że obiektu mają być w bazie, a tabele utworzy sam i nazwie sam)
-@Table(name = "tasks") //opcjonale WSKAZANIE nazwy TABELI dla obiektów
+@NamedQueries({
+        @NamedQuery(
+                name = "Task.retrieveLongTasks",
+                query ="FROM Task WHERE duration > 10"
+        ),
+        @NamedQuery(
+                name ="Task.retrieveShortTasks",
+                query = "FROM Task WHERE duration <= 10"
+
+        ),
+        @NamedQuery(
+                name = "Task.retrieveTasksWithDurationLongerThan",
+                query = "FROM Task WHERE duration > :DURATION"
+
+        )
+})
+@NamedNativeQuery(
+        name = "Task.retrieveTasksWithEnoughTime",
+        query = "SELECT * FROM TASKS" +
+                " WHERE DATEDIFF (DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
+        resultClass = Task.class
+)
+@Entity
+//UTRWALENIE W BAZIE(informacja że obiektu mają być w bazie, a tabele utworzy sam i nazwie sam)
+@Table(name = "TASKS") //opcjonale WSKAZANIE nazwy TABELI dla obiektów
 public class Task {
     private int id;
     private String description;
     private Date created;
     private int duration;
-
+    private TaskFinancialDetails taskFinancialDetails;
+    private TaskList taskList;
     public Task() { } //do odtworzenia obiektow z bazy wykorzystywany jest konstruktor bezparametrowy
 
     public Task (String description, int duration) {
@@ -28,7 +54,7 @@ public class Task {
         return id;
     }
 
-    @Column (name="DESCRIPTION")
+    @Column(name="DESCRIPTION")
     public String getDescription() {
         return description;
     }
@@ -44,6 +70,18 @@ public class Task {
         return duration;
     }
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)//cascade okresla co ma sie dziać z rekordami w tabeli zaleznej gdy usuwamy lub zapisujemy rekord w tabeli tasks
+    @JoinColumn(name = "TASKS_FINANCIALS_ID")//INSTRUKCJA JAK nazwać kolumne z kluczem obcym
+    public TaskFinancialDetails getTaskFinancialDetails() {
+        return taskFinancialDetails;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    public TaskList getTaskList() {
+        return taskList;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -56,7 +94,15 @@ public class Task {
         this.created = created;
     }
 
-    public void setDuration(int duration) {
+    public void setfDuration(int duration) {
         this.duration = duration;
+    }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
+    }
+
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
     }
 }

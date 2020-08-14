@@ -39,7 +39,6 @@ public class Company {
 
     @NotNull
     @Column(name = "COMPANY_NAME")
-
     public String getName() {
         return name;
     }

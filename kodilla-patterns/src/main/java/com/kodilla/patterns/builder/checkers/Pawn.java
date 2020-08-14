@@ -1,4 +1,7 @@
 package com.kodilla.patterns.builder.checkers;
 
-public class Pawn {
+public class Pawn extends Figure {
+    public Pawn(String color) {
+        super(color);
+    }
 }

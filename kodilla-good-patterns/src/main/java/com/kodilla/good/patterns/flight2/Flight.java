@@ -26,12 +26,15 @@ public final class Flight {
         return indirect;
     }
 
+
+
     @Override
     public String toString() {
         return "Flight: " +
                 "departure from " + departure +
                 ", to " + arrives;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
